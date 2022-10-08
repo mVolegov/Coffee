@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Администратор</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-dark text-white">
+    <div th:insert="fragments/headers :: admin_staff_header"></div>
+    <div th:switch="${users}" class="container">
+        <h2 th:case="null">Нет сотрудников!</h2>
+        <div th:case="*">
+            <p class="h5">Сотрудники:</p>
+            <table class="table table-hover table-dark table-borderless text-center">
+                <thead>
+                    <tr>
+                        <th scope="col">Номер</th>
+                        <th scope="col">Логин</th>
+                        <th scope="col">Роль</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="user : ${users}">
+                        <td th:text="${user.id}"></td>
+                        <td th:text="${user.username}"></td>
+                        <td th:text="${user.role}"></td>
+                        <td><a th:href="@{/admin/staff/update_user/{id}(id=${user.id})}" class="btn btn-warning">Изменить</a></td>
+                        <td>
+                            <form th:method="DELETE" th:action="@{/admin/staff/delete_user/{id}(id=${user.id})}">
+                                <input type="submit" value="Удалить" class="btn btn-danger">
+                            </form>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <a th:href="@{/admin/staff/add_user}" class="btn btn-success btn-lg">Добавить сотрудника</a>
+    </div>
+</body>
+</html>

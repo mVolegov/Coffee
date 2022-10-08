@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Меню</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-dark text-white">
+    <div th:insert="fragments/headers :: admin_menu_header"></div>
+    <div class="container">
+        <p class="h5">Состав меню:</p>
+        <table class="table table-hover table-dark table-borderless text-center">
+            <thead>
+            <tr>
+                <th scope="col">Номер</th>
+                <th scope="col">Наименование</th>
+<!--                <th scope="col">Себестоимость (.руб)</th>-->
+                <th scope="col">Цена (.руб)</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr th:each="element : ${menu_elements}">
+                    <td th:text="${element.id}"></td>
+                    <td th:text="${element.name}"></td>
+<!--                    <td th:text="${element.costPrice}"></td>-->
+                    <td th:text="${element.price}"></td>
+
+                    <td><a th:href="@{/admin/menu/add_items_to_menu_element/{id}(id=${element.id})}" class="btn btn-outline-primary">Состав</a></td>
+                    <td><a th:href="@{/admin/menu/update_menu_element/{id}(id=${element.id})}" class="btn btn-warning">Изменить</a></td>
+                    <td>
+                        <form th:method="DELETE" th:action="@{/admin/menu/delete_menu_element/{id}(id=${element.id})}">
+                            <input type="submit" value="Удалить" class="btn btn-danger">
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a th:href="@{/admin/menu/add_menu_element}" class="btn btn-success btn-lg">Добавить элемент</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Состав</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-dark text-white">
+    <div th:insert="fragments/headers :: admin_menu_header"></div>
+    <div class="container">
+        <p class="h5" th:text="'Состав ' + ${menu_element.name}"></p>
+
+        <a th:href="@{/admin/menu/{id_menu}/add_item_to_menu_element/(id_menu=${menu_element.id})}" class="btn btn-success btn-lg mt-3 mb-3">Добавить элемент</a>
+
+        <table class="table table-hover table-dark table-borderless text-center">
+            <thead>
+                <tr>
+                    <th scope="col">Номер на складе</th>
+                    <th scope="col">Наименование</th>
+                    <th scope="col">Необходимый объем</th>
+                    <th scope="col">Ед. измерения</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="warehouse_item_in_menu : ${menu_element_composition}">
+                    <td th:text="${warehouse_item_in_menu.warehouseItem.id}"></td>
+                    <td th:text="${warehouse_item_in_menu.warehouseItem.name}"></td>
+                    <td th:text="${warehouse_item_in_menu.requiredAmount}"></td>
+                    <td th:text="${warehouse_item_in_menu.warehouseItem.units}"></td>
+                    <td>
+                        <form th:method="DELETE" th:action="@{/admin/menu/{id_menu}/delete_items_from_menu_element/{id_warehouse}(id_menu=${menu_element.id}, id_warehouse=${warehouse_item_in_menu.warehouseItem.id})}">
+                            <input type="submit" value="Удалить" class="btn btn-danger">
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <a th:href="@{/admin/menu}" class="btn btn-outline-success btn-lg">Назад</a>
+
+<!--        <form th:action="@{/admin/menu/add_item_to_menu_element}" th:object="${menu_element_composition}" th:method="POST">-->
+<!--            <label for="menu_element_id">Номер пункта меню</label>-->
+<!--            <input readonly type="number" th:field="${menu_element_composition.menuElement.id}" th:value="${menu_element.id}" id="menu_element_id" placeholder="Номер пункта меню">-->
+
+<!--            <div th:each="warehouse_item : ${warehouse_items}">-->
+<!--                <input type="checkbox" th:text="${warehouse_item.name}" th:value="${warehouse_item.id}" th:field="${menu_element_composition.warehouseItem.id}" class="custom-control-input">-->
+<!--                <br>-->
+<!--            </div>-->
+
+<!--            <input type="submit" value="Добавить" class="btn btn-success btn-lg">-->
+<!--        </form>-->
+    </div>
+</body>
+</html>

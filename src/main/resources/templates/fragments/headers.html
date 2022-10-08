@@ -1,0 +1,136 @@
+<div th:fragment="admin_header">
+  <div class="container" style="height: 100%;">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a th:href="@{/admin}" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <!--                <img class="bi me-5" th:src="@{/icons/receptionist_account_icn.png}">-->
+        <span th:text="'Администратор: ' + ${#authentication.name}" class="text-white fs-4"></span>
+      </a>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a th:href="@{/admin/wrh}" class="btn btn-primary btn-lg m-2">Склад</a></li>
+        <li><a th:href="@{/admin/menu}" class="btn btn-primary btn-lg m-2">Меню</a></li>
+        <li><a th:href="@{/admin/staff}" class="btn btn-primary btn-lg m-2">Сотрудники</a></li>
+        <li><a th:href="@{/admin/orders_history}" class="btn btn-primary btn-lg m-2">История</a></li>
+      </ul>
+
+      <div class="col-md-3 text-end">
+        <form th:action="@{/logout}" th:method="POST">
+          <button type="submit" class="btn btn-danger btn-lg">Выход</button>
+        </form>
+      </div>
+    </header>
+  </div>
+</div>
+
+<div th:fragment="admin_menu_header">
+  <div class="container" style="height: 100%;">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a th:href="@{/admin}" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <!--                <img class="bi me-5" th:src="@{/icons/receptionist_account_icn.png}">-->
+        <span th:text="'Администратор: ' + ${#authentication.name}" class="text-white fs-4"></span>
+      </a>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a th:href="@{/admin/wrh}" class="btn btn-outline-primary btn-lg m-2">Склад</a></li>
+        <li><a th:href="@{/admin/menu}" class="btn btn-primary btn-lg m-2">Меню</a></li>
+        <li><a th:href="@{/admin/staff}" class="btn btn-outline-primary btn-lg m-2">Сотрудники</a></li>
+        <li><a th:href="@{/admin/orders_history}" class="btn btn-outline-primary btn-lg m-2">История</a></li>
+      </ul>
+
+      <div class="col-md-3 text-end">
+        <form th:action="@{/logout}" th:method="POST">
+          <button type="submit" class="btn btn-danger btn-lg">Выход</button>
+        </form>
+      </div>
+    </header>
+  </div>
+</div>
+
+<div th:fragment="admin_wrh_header">
+  <div class="container" style="height: 100%;">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a th:href="@{/admin}" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <!--                <img class="bi me-5" th:src="@{/icons/receptionist_account_icn.png}">-->
+        <span th:text="'Администратор: ' + ${#authentication.name}" class="text-white fs-4"></span>
+      </a>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a th:href="@{/admin/wrh}" class="btn btn-primary btn-lg m-2">Склад</a></li>
+        <li><a th:href="@{/admin/menu}" class="btn btn-outline-primary btn-lg m-2">Меню</a></li>
+        <li><a th:href="@{/admin/staff}" class="btn btn-outline-primary btn-lg m-2">Сотрудники</a></li>
+        <li><a th:href="@{/admin/orders_history}" class="btn btn-outline-primary btn-lg m-2">История</a></li>
+      </ul>
+
+      <div class="col-md-3 text-end">
+        <form th:action="@{/logout}" th:method="POST">
+          <button type="submit" class="btn btn-danger btn-lg">Выход</button>
+        </form>
+      </div>
+    </header>
+  </div>
+</div>
+
+<div th:fragment="admin_staff_header">
+  <div class="container" style="height: 100%;">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a th:href="@{/admin}" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <!--                <img class="bi me-5" th:src="@{/icons/receptionist_account_icn.png}">-->
+        <span th:text="'Администратор: ' + ${#authentication.name}" class="text-white fs-4"></span>
+      </a>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a th:href="@{/admin/wrh}" class="btn btn-outline-primary btn-lg m-2">Склад</a></li>
+        <li><a th:href="@{/admin/menu}" class="btn btn-outline-primary btn-lg m-2">Меню</a></li>
+        <li><a th:href="@{/admin/staff}" class="btn btn-primary btn-lg m-2">Сотрудники</a></li>
+        <li><a th:href="@{/admin/orders_history}" class="btn btn-outline-primary btn-lg m-2">История</a></li>
+      </ul>
+
+      <div class="col-md-3 text-end">
+        <form th:action="@{/logout}" th:method="POST">
+          <button type="submit" class="btn btn-danger btn-lg">Выход</button>
+        </form>
+      </div>
+    </header>
+  </div>
+</div>
+
+<div th:fragment="admin_orders_history_header">
+  <div class="container" style="height: 100%;">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a th:href="@{/admin}" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <!--                <img class="bi me-5" th:src="@{/icons/receptionist_account_icn.png}">-->
+        <span th:text="'Администратор: ' + ${#authentication.name}" class="text-white fs-4"></span>
+      </a>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a th:href="@{/admin/wrh}" class="btn btn-outline-primary btn-lg m-2">Склад</a></li>
+        <li><a th:href="@{/admin/menu}" class="btn btn-outline-primary btn-lg m-2">Меню</a></li>
+        <li><a th:href="@{/admin/staff}" class="btn btn-outline-primary btn-lg m-2">Сотрудники</a></li>
+        <li><a th:href="@{/admin/orders_history}" class="btn btn-primary btn-lg m-2">История</a></li>
+      </ul>
+
+      <div class="col-md-3 text-end">
+        <form th:action="@{/logout}" th:method="POST">
+          <button type="submit" class="btn btn-danger btn-lg">Выход</button>
+        </form>
+      </div>
+    </header>
+  </div>
+</div>
+
+<div th:fragment="barista_header">
+  <div class="container" style="height: 100%;">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a th:href="@{/barista}" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <!--                <img class="bi me-5" th:src="@{/icons/receptionist_account_icn.png}">-->
+        <span th:text="'Бариста: ' + ${#authentication.name}" class="text-white fs-4"></span>
+      </a>
+
+      <div class="col-md-3 text-end">
+        <form th:action="@{/logout}" th:method="POST">
+          <button type="submit" class="btn btn-danger btn-lg">Выход</button>
+        </form>
+      </div>
+    </header>
+  </div>
+</div>
