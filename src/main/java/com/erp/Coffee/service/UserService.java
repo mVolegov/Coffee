@@ -33,7 +33,7 @@ public class UserService {
     }
 
     public List<User> findAllBaristas() {
-        return userRepository.findAllBaristas("BARISTA").orElseThrow(RuntimeException::new);
+        return userRepository.findAllBaristas(Role.BARISTA.name()).orElseThrow(RuntimeException::new);
     }
 
     public void saveUser(User user) throws UserAlreadyExistsException {
